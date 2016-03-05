@@ -8,3 +8,20 @@
 * 
 * Copyright Ali Reza Barkhordari 2016
 */
+
+;(function(window){
+	
+	function moduleMappingCompleted(){
+		//TODO: Iterate through clobbers and wrap them in a new function applying access control mechanisms
+		
+		// Prevent others from calling these methods once again
+		delete window.cordovaGuard;
+	}
+	
+	var cordovaGuard = {
+		onModuleMapComplete: moduleMappingCompleted
+	};
+	
+	window.cordovaGuard = cordovaGuard;
+	
+})(window);
